@@ -1,0 +1,69 @@
+<html>
+<head>
+<style>
+table {
+	
+	border-collapse: collapse;
+}
+h1 {
+	font-size: 24px;
+	font-weight: bold;
+	color: blue;
+	text-decoration: underline;
+	Text-align: center;
+}
+</style>
+</head>
+<body>
+<h1>Weather Table</h1><br><br>
+<table id="Table" border=1 align="center"><tr><th>City name</th><th>Temperature (in &degCelsius)</th></tr>
+</table>
+<script lang="text/javascript">
+    function weatherBalloon( cityID ) {
+      var key = 'b48e7cc7443e3f275cde3b0a3aa8c310';
+      fetch('https://api.openweathermap.org/data/2.5/weather?id=' +cityID+ '&appid=' + key)  
+      .then(function(resp) { return resp.json() }) // Convert data to json
+      .then(function(data) { drawWeather(data); })
+      .catch(function() {});
+    }
+  function drawWeather( d ) {
+	  var celsius = Math.round(parseFloat(d.main.temp)-273.15);
+	  var table = document.getElementById("Table");
+	  var row = table.insertRow(-1);
+	  var cell1 = row.insertCell(0);
+	  var cell2 = row.insertCell(1);
+	  cell1.innerHTML = d.name;
+	  cell2.innerHTML = celsius;
+    //document.getElementById("demo").innerHTML=d.name+" "+celcius+"&deg"+"<br>";
+	}
+  
+window.onload = function() {
+weatherBalloon(1264527);
+weatherBalloon(1269843);
+ 
+  
+}
+/*var xmlhttp = new XMLHttpRequest();
+var url = "https://api.openweathermap.org/data/2.5/weather?id=1264527&APPID=b48e7cc7443e3f275cde3b0a3aa8c310"
+xmlhttp.onreadystatechange = function(){
+  if (this.readyState == 4 && this.status == 200){
+    var myobj = JSON.parse(this.responseText);
+    txt += "<table border = '1'>";
+    for (x in myObj){
+      txt += "<tr><td>" + myobj[x].main.temp + "</td></tr>";
+    txt += "</table>";
+    document.getElementByID("demo").innerHTML = txt;
+  }
+};
+xmlhttp.open("GET",url,true);
+xmlhttp.send();*/
+  
+</script>
+</body>
+</html>
+<!--<table id="weathertable" border=1></table>
+  <p id="demo"></p>
+  <script 
+  </script>
+</body>
+</html>-->
