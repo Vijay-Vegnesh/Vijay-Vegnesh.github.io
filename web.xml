@@ -1,0 +1,10 @@
+<web-app>
+<servlet>
+<servlet-name>CServlet</servlet-name>
+<servlet-class>ColorServlet</servlet-class>
+</servlet>
+<servlet-mapping>
+<servlet-name>CServlet</servlet-name>
+<url-pattern>/color</url-pattern>
+</servlet-mapping>
+</web-app>
