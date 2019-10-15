@@ -1,0 +1,47 @@
+<html>
+<head>
+<title>Javascript</title>
+<style>
+body{
+	border: 3px solid;
+	padding: 20px;
+	background-color: #e0ffff;
+}
+</style>
+</head>
+<body>
+<div id = "date"></div>
+<h1 style = "color: blue; Text-Align:center; text-decoration: underline overline;">Javascript</h1>
+<p style = "font-family:calibri; font-size:20px; padding: 20px;">JavaScript (JS) is a lightweight, interpreted, or just-in-time compiled programming language with first-class functions.<br>
+While it is most well-known as the scripting language for Web pages, many non-browser environments also use it, <br>such as Node.js, Apache CouchDB and Adobe Acrobat.
+JavaScript is a prototype-based, multi-paradigm, dynamic language,<br> supporting object-oriented, imperative, and declarative (e.g. functional programming) styles.</p>
+<button onclick="this.innerHTML='Text Changed!'" style = "background-color: #1e90ff; height:50px; width:100px;margin-left:25%; border-radius: 10px;">Click here</button></br>
+<div id = "image" onmouseover="mOver()" onmouseout="mOut(this)" onclick="mClick()" style = "height: 300px width: 400px"><img src = 'img1.PNG'></div>
+<div id = "time" style = "text-align:right; margin-top:100px"></div>
+<script>
+  n =  new Date();
+  y = n.getFullYear();
+  m = n.getMonth() + 1;
+  d = n.getDate();
+  h = n.getHours();
+  min = n.getMinutes();
+  document.getElementById("date").innerHTML = "Date : " + d + "/" + m + "/" + y;
+  document.getElementById("time").innerHTML = "Time : " + h + ":" + min;
+  function mOver()
+  {
+	document.getElementById("image").innerHTML="<img src = 'img2.PNG'>";
+  }
+  function mOut(obj)
+  {
+	obj.innerHTML="<img src = 'img1.PNG'>";
+  }
+  function mClick()
+  {
+    alert("Mouse over me");
+    console.log("clicked");
+    //obj.style.textAlign = "right";
+  }
+</script>
+
+</body>
+</html>
